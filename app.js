@@ -1,4 +1,3 @@
-
 const apiKey = 'cb7d74e3c3935e08204df1cbc1641712'; 
 
 document.getElementById('getWeather').addEventListener('click', function() {
@@ -20,7 +19,10 @@ document.getElementById('getWeather').addEventListener('click', function() {
       document.getElementById('weatherDescription').textContent = `Weather: ${data.weather[0].description}`;
       document.getElementById('humidity').textContent = `Humidity: ${data.main.humidity}%`;
       document.getElementById('windSpeed').textContent = `Wind Speed: ${data.wind.speed} m/s`;
-      document.getElementById('weatherResult').style.display = 'block';
+      
+      // Add class to fade in the weather card
+      const weatherCard = document.getElementById('weatherResult');
+      weatherCard.classList.add('show');  // Show the card with a fade-in effect
     })
     .catch(error => {
       alert('Error fetching weather data');
